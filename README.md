@@ -2,4 +2,4 @@
 
 
 
-[clique aqui](ejss_model_ohs1/ohs1_Simulation.xhtml) and ![Image](src)
+[clique aqui](ejss_model_ohs1/ohs1_Simulation.xhtml) 
