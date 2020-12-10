@@ -2,4 +2,4 @@
 
 
 
-[clique aqui](ejss_model_ohs1/ohs1_Simulation.xhtml) 
+[clique aqui](ohs1_Simulation.xhtml) 
