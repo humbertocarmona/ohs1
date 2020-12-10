@@ -78,6 +78,8 @@ var _stringProperties = {};
 
   var t; // EjsS Model.Variables.main.t
   var dt; // EjsS Model.Variables.main.dt
+  var v0; // EjsS Model.Variables.main.v0
+  var x0; // EjsS Model.Variables.main.x0
   var x; // EjsS Model.Variables.main.x
   var y; // EjsS Model.Variables.main.y
   var vx; // EjsS Model.Variables.main.vx
@@ -98,8 +100,6 @@ var _stringProperties = {};
   var view_ax; // EjsS Model.Variables.viewFlags.view_ax
   var view_vx; // EjsS Model.Variables.viewFlags.view_vx
   var view_end; // EjsS Model.Variables.viewFlags.view_end
-
-  var yticks; // EjsS Model.Variables.axis.yticks
 
   var _privateOdesList;
   var _ODEi_evolution1;
@@ -126,6 +126,8 @@ var _stringProperties = {};
       Ly : Ly,
       t : t,
       dt : dt,
+      v0 : v0,
+      x0 : x0,
       x : x,
       y : y,
       vx : vx,
@@ -143,8 +145,7 @@ var _stringProperties = {};
       view_y : view_y,
       view_ax : view_ax,
       view_vx : view_vx,
-      view_end : view_end,
-      yticks : yticks
+      view_end : view_end
     };
   };
 
@@ -163,6 +164,8 @@ var _stringProperties = {};
       Ly : Ly,
       t : t,
       dt : dt,
+      v0 : v0,
+      x0 : x0,
       x : x,
       y : y,
       vx : vx,
@@ -180,8 +183,7 @@ var _stringProperties = {};
       view_y : view_y,
       view_ax : view_ax,
       view_vx : view_vx,
-      view_end : view_end,
-      yticks : yticks
+      view_end : view_end
     };
   };
 
@@ -197,6 +199,8 @@ var _stringProperties = {};
     if(typeof json.Ly != "undefined") Ly = json.Ly;
     if(typeof json.t != "undefined") t = json.t;
     if(typeof json.dt != "undefined") dt = json.dt;
+    if(typeof json.v0 != "undefined") v0 = json.v0;
+    if(typeof json.x0 != "undefined") x0 = json.x0;
     if(typeof json.x != "undefined") x = json.x;
     if(typeof json.y != "undefined") y = json.y;
     if(typeof json.vx != "undefined") vx = json.vx;
@@ -215,7 +219,6 @@ var _stringProperties = {};
     if(typeof json.view_ax != "undefined") view_ax = json.view_ax;
     if(typeof json.view_vx != "undefined") view_vx = json.view_vx;
     if(typeof json.view_end != "undefined") view_end = json.view_end;
-    if(typeof json.yticks != "undefined") yticks = json.yticks;
   };
 
   _model._readParametersPublic = function(json) {
@@ -230,6 +233,8 @@ var _stringProperties = {};
     if(typeof json.Ly != "undefined") Ly = json.Ly;
     if(typeof json.t != "undefined") t = json.t;
     if(typeof json.dt != "undefined") dt = json.dt;
+    if(typeof json.v0 != "undefined") v0 = json.v0;
+    if(typeof json.x0 != "undefined") x0 = json.x0;
     if(typeof json.x != "undefined") x = json.x;
     if(typeof json.y != "undefined") y = json.y;
     if(typeof json.vx != "undefined") vx = json.vx;
@@ -248,7 +253,6 @@ var _stringProperties = {};
     if(typeof json.view_ax != "undefined") view_ax = json.view_ax;
     if(typeof json.view_vx != "undefined") view_vx = json.view_vx;
     if(typeof json.view_end != "undefined") view_end = json.view_end;
-    if(typeof json.yticks != "undefined") yticks = json.yticks;
   };
 
   function _unserializePublic(json) { return _model.unserializePublic(json); }
@@ -291,9 +295,11 @@ var _stringProperties = {};
   _model.addToReset(function() {
     t = 0; // EjsS Model.Variables.main.t
     dt = 0.002; // EjsS Model.Variables.main.dt
-    x = 2; // EjsS Model.Variables.main.x
+    v0 = 0.0; // EjsS Model.Variables.main.v0
+    x0 = 0.0; // EjsS Model.Variables.main.x0
+    x = x0; // EjsS Model.Variables.main.x
     y = 0; // EjsS Model.Variables.main.y
-    vx = 0; // EjsS Model.Variables.main.vx
+    vx = v0; // EjsS Model.Variables.main.vx
     vy = 0; // EjsS Model.Variables.main.vy
     ax = 0; // EjsS Model.Variables.main.ax
     ay = 0; // EjsS Model.Variables.main.ay
@@ -317,10 +323,6 @@ var _stringProperties = {};
     view_end = false; // EjsS Model.Variables.viewFlags.view_end
   });
 
-  _model.addToReset(function() {
-    yticks = new Array(5); // EjsS Model.Variables.axis.yticks
-  });
-
   if (_inputParameters) {
     _inputParameters = _model.parseInputParameters(_inputParameters);
     if (_inputParameters) _model.addToReset(function() { _model._readParameters(_inputParameters); });
@@ -341,7 +343,8 @@ var _stringProperties = {};
 
   _model.addToInitialization(function() {
     if (!__pagesEnabled["Init Page"]) return;
-    yticks = [-10.0,-5.0,0.0,5.0,1.0];  // > Initialization.Init Page:1
+    t = 0.0;  // > Initialization.Init Page:1
+    vx = v0;  // > Initialization.Init Page:2
   });
 
   _model.addToInitialization(function() {
@@ -704,6 +707,10 @@ var _stringProperties = {};
           _view.initButton.setAction("OnClick", _initialize); // HtmlView Page setting action 'OnClick' for element 'initButton'
           _view.button.setAction("OnClick", _step); // HtmlView Page setting action 'OnClick' for element 'button'
           _view.timeField.linkProperty("Value",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'Value' for element 'timeField'
+          _view.v0.linkProperty("Value",  function() { return v0; }, function(_v) { v0 = _v; } ); // HtmlView Page linking property 'Value' for element 'v0'
+          _view.v0.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'v0'
+          _view.x0.linkProperty("Value",  function() { return x0; }, function(_v) { x0 = _v; } ); // HtmlView Page linking property 'Value' for element 'x0'
+          _view.x0.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'x0'
           _view.view_x.linkProperty("Checked",  function() { return view_x; }, function(_v) { view_x = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_x'
           _view.view_vx.linkProperty("Checked",  function() { return view_vx; }, function(_v) { view_vx = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_vx'
           _view.view_ax.linkProperty("Checked",  function() { return view_ax; }, function(_v) { view_ax = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_ax'
@@ -992,6 +999,14 @@ function ohs1_View_0 (_topFrame) {
       .setProperty("Width","50px") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'timeField'
       .setProperty("Format","0.00") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'timeField'
       .setProperty("Editable",false) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'timeField'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.numberField,"v0", _view.bottomCell2) // EJsS HtmlView.HtmlView Page: declaration of element 'v0'
+      .setProperty("Editable",true) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'v0'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.numberField,"x0", _view.bottomCell2) // EJsS HtmlView.HtmlView Page: declaration of element 'x0'
+      .setProperty("Editable",true) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'x0'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"bottomCell3", _view.bottomPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'bottomCell3'
