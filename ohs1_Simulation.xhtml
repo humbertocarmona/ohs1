@@ -88,6 +88,9 @@ var _stringProperties = {};
   var ay; // EjsS Model.Variables.main.ay
   var v; // EjsS Model.Variables.main.v
   var a; // EjsS Model.Variables.main.a
+  var Kin; // EjsS Model.Variables.main.Kin
+  var Pot; // EjsS Model.Variables.main.Pot
+  var Tot; // EjsS Model.Variables.main.Tot
 
   var k; // EjsS Model.Variables.Oscilador.k
   var m; // EjsS Model.Variables.Oscilador.m
@@ -100,6 +103,9 @@ var _stringProperties = {};
   var view_ax; // EjsS Model.Variables.viewFlags.view_ax
   var view_vx; // EjsS Model.Variables.viewFlags.view_vx
   var view_end; // EjsS Model.Variables.viewFlags.view_end
+  var view_Kin; // EjsS Model.Variables.viewFlags.view_Kin
+  var view_Tot; // EjsS Model.Variables.viewFlags.view_Tot
+  var view_Pot; // EjsS Model.Variables.viewFlags.view_Pot
 
   var _privateOdesList;
   var _ODEi_evolution1;
@@ -136,6 +142,9 @@ var _stringProperties = {};
       ay : ay,
       v : v,
       a : a,
+      Kin : Kin,
+      Pot : Pot,
+      Tot : Tot,
       k : k,
       m : m,
       w : w,
@@ -145,7 +154,10 @@ var _stringProperties = {};
       view_y : view_y,
       view_ax : view_ax,
       view_vx : view_vx,
-      view_end : view_end
+      view_end : view_end,
+      view_Kin : view_Kin,
+      view_Tot : view_Tot,
+      view_Pot : view_Pot
     };
   };
 
@@ -174,6 +186,9 @@ var _stringProperties = {};
       ay : ay,
       v : v,
       a : a,
+      Kin : Kin,
+      Pot : Pot,
+      Tot : Tot,
       k : k,
       m : m,
       w : w,
@@ -183,7 +198,10 @@ var _stringProperties = {};
       view_y : view_y,
       view_ax : view_ax,
       view_vx : view_vx,
-      view_end : view_end
+      view_end : view_end,
+      view_Kin : view_Kin,
+      view_Tot : view_Tot,
+      view_Pot : view_Pot
     };
   };
 
@@ -209,6 +227,9 @@ var _stringProperties = {};
     if(typeof json.ay != "undefined") ay = json.ay;
     if(typeof json.v != "undefined") v = json.v;
     if(typeof json.a != "undefined") a = json.a;
+    if(typeof json.Kin != "undefined") Kin = json.Kin;
+    if(typeof json.Pot != "undefined") Pot = json.Pot;
+    if(typeof json.Tot != "undefined") Tot = json.Tot;
     if(typeof json.k != "undefined") k = json.k;
     if(typeof json.m != "undefined") m = json.m;
     if(typeof json.w != "undefined") w = json.w;
@@ -219,6 +240,9 @@ var _stringProperties = {};
     if(typeof json.view_ax != "undefined") view_ax = json.view_ax;
     if(typeof json.view_vx != "undefined") view_vx = json.view_vx;
     if(typeof json.view_end != "undefined") view_end = json.view_end;
+    if(typeof json.view_Kin != "undefined") view_Kin = json.view_Kin;
+    if(typeof json.view_Tot != "undefined") view_Tot = json.view_Tot;
+    if(typeof json.view_Pot != "undefined") view_Pot = json.view_Pot;
   };
 
   _model._readParametersPublic = function(json) {
@@ -243,6 +267,9 @@ var _stringProperties = {};
     if(typeof json.ay != "undefined") ay = json.ay;
     if(typeof json.v != "undefined") v = json.v;
     if(typeof json.a != "undefined") a = json.a;
+    if(typeof json.Kin != "undefined") Kin = json.Kin;
+    if(typeof json.Pot != "undefined") Pot = json.Pot;
+    if(typeof json.Tot != "undefined") Tot = json.Tot;
     if(typeof json.k != "undefined") k = json.k;
     if(typeof json.m != "undefined") m = json.m;
     if(typeof json.w != "undefined") w = json.w;
@@ -253,6 +280,9 @@ var _stringProperties = {};
     if(typeof json.view_ax != "undefined") view_ax = json.view_ax;
     if(typeof json.view_vx != "undefined") view_vx = json.view_vx;
     if(typeof json.view_end != "undefined") view_end = json.view_end;
+    if(typeof json.view_Kin != "undefined") view_Kin = json.view_Kin;
+    if(typeof json.view_Tot != "undefined") view_Tot = json.view_Tot;
+    if(typeof json.view_Pot != "undefined") view_Pot = json.view_Pot;
   };
 
   function _unserializePublic(json) { return _model.unserializePublic(json); }
@@ -294,7 +324,7 @@ var _stringProperties = {};
 
   _model.addToReset(function() {
     t = 0; // EjsS Model.Variables.main.t
-    dt = 0.002; // EjsS Model.Variables.main.dt
+    dt = 0.001; // EjsS Model.Variables.main.dt
     v0 = 0.0; // EjsS Model.Variables.main.v0
     x0 = 0.0; // EjsS Model.Variables.main.x0
     x = x0; // EjsS Model.Variables.main.x
@@ -305,6 +335,9 @@ var _stringProperties = {};
     ay = 0; // EjsS Model.Variables.main.ay
     v = 0; // EjsS Model.Variables.main.v
     a = 0; // EjsS Model.Variables.main.a
+    Kin = 0; // EjsS Model.Variables.main.Kin
+    Pot = 0; // EjsS Model.Variables.main.Pot
+    Tot = 0; // EjsS Model.Variables.main.Tot
   });
 
   _model.addToReset(function() {
@@ -321,6 +354,9 @@ var _stringProperties = {};
     view_ax = false; // EjsS Model.Variables.viewFlags.view_ax
     view_vx = false; // EjsS Model.Variables.viewFlags.view_vx
     view_end = false; // EjsS Model.Variables.viewFlags.view_end
+    view_Kin = false; // EjsS Model.Variables.viewFlags.view_Kin
+    view_Tot = false; // EjsS Model.Variables.viewFlags.view_Tot
+    view_Pot = false; // EjsS Model.Variables.viewFlags.view_Pot
   });
 
   if (_inputParameters) {
@@ -338,13 +374,16 @@ var _stringProperties = {};
     _model.setAutoplay(false);
     _model.setPauseOnPageExit(true);
     _model.setFPS(20);
-    _model.setStepsPerDisplay(100);
+    _model.setStepsPerDisplay(200);
   });
 
   _model.addToInitialization(function() {
     if (!__pagesEnabled["Init Page"]) return;
     t = 0.0;  // > Initialization.Init Page:1
     vx = v0;  // > Initialization.Init Page:2
+    Kin = 0.5*m*vx*vx;  // > Initialization.Init Page:3
+    Pot = 0.5*k*x*x;  // > Initialization.Init Page:4
+    Tot = Kin + Pot;  // > Initialization.Init Page:5
   });
 
   _model.addToInitialization(function() {
@@ -361,10 +400,13 @@ var _stringProperties = {};
   _model.addToFixedRelations(function() {
     if (!__pagesEnabled["fixed"]) return;
     ax = -k*x/m;  // > FixedRelations.fixed:1
-    if(t>50) {  // > FixedRelations.fixed:2
-      _pause();  // > FixedRelations.fixed:3
-      view_end=true;  // > FixedRelations.fixed:4
-      }  // > FixedRelations.fixed:5
+    Kin = 0.5*m*vx*vx;  // > FixedRelations.fixed:2
+    Pot = 0.5*k*x*x;  // > FixedRelations.fixed:3
+    Tot = Kin + Pot;  // > FixedRelations.fixed:4
+    if(t>50) {  // > FixedRelations.fixed:5
+      _pause();  // > FixedRelations.fixed:6
+      view_end=true;  // > FixedRelations.fixed:7
+      }  // > FixedRelations.fixed:8
   });
 
   _model.addToFixedRelations(function() { _isPaused = _model.isPaused(); _isPlaying = _model.isPlaying(); });
@@ -699,6 +741,15 @@ var _stringProperties = {};
           _view.ax22.linkProperty("Y",  function() { return ax; }, function(_v) { ax = _v; } ); // HtmlView Page linking property 'Y' for element 'ax22'
           _view.ax_trail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'ax_trail'
           _view.ax_trail.linkProperty("InputY",  function() { return ax; }, function(_v) { ax = _v; } ); // HtmlView Page linking property 'InputY' for element 'ax_trail'
+          _view.kin.linkProperty("Visibility",  function() { return view_Kin; }, function(_v) { view_Kin = _v; } ); // HtmlView Page linking property 'Visibility' for element 'kin'
+          _view.k_trail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'k_trail'
+          _view.k_trail.linkProperty("InputY",  function() { return Kin; }, function(_v) { Kin = _v; } ); // HtmlView Page linking property 'InputY' for element 'k_trail'
+          _view.pot.linkProperty("Visibility",  function() { return view_Pot; }, function(_v) { view_Pot = _v; } ); // HtmlView Page linking property 'Visibility' for element 'pot'
+          _view.p_trail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'p_trail'
+          _view.p_trail.linkProperty("InputY",  function() { return Pot; }, function(_v) { Pot = _v; } ); // HtmlView Page linking property 'InputY' for element 'p_trail'
+          _view.tot.linkProperty("Visibility",  function() { return view_Tot; }, function(_v) { view_Tot = _v; } ); // HtmlView Page linking property 'Visibility' for element 'tot'
+          _view.E_trail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'E_trail'
+          _view.E_trail.linkProperty("InputY",  function() { return Tot; }, function(_v) { Tot = _v; } ); // HtmlView Page linking property 'InputY' for element 'E_trail'
           _view.bottomPanel.linkProperty("Width",  function() { return mainWidth; }, function(_v) { mainWidth = _v; } ); // HtmlView Page linking property 'Width' for element 'bottomPanel'
           _view.playPauseButton.setAction("OffClick", _pause); // HtmlView Page setting action 'OffClick' for element 'playPauseButton'
           _view.playPauseButton.linkProperty("State",  function() { return _isPaused; } ); // HtmlView Page linking property 'State' for element 'playPauseButton'
@@ -709,11 +760,12 @@ var _stringProperties = {};
           _view.timeField.linkProperty("Value",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'Value' for element 'timeField'
           _view.v0.linkProperty("Value",  function() { return v0; }, function(_v) { v0 = _v; } ); // HtmlView Page linking property 'Value' for element 'v0'
           _view.v0.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'v0'
-          _view.x0.linkProperty("Value",  function() { return x0; }, function(_v) { x0 = _v; } ); // HtmlView Page linking property 'Value' for element 'x0'
-          _view.x0.setAction("OnChange", _initialize); // HtmlView Page setting action 'OnChange' for element 'x0'
           _view.view_x.linkProperty("Checked",  function() { return view_x; }, function(_v) { view_x = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_x'
           _view.view_vx.linkProperty("Checked",  function() { return view_vx; }, function(_v) { view_vx = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_vx'
           _view.view_ax.linkProperty("Checked",  function() { return view_ax; }, function(_v) { view_ax = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_ax'
+          _view.view_Kin.linkProperty("Checked",  function() { return view_Kin; }, function(_v) { view_Kin = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_Kin'
+          _view.view_Pot.linkProperty("Checked",  function() { return view_Pot; }, function(_v) { view_Pot = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_Pot'
+          _view.view_Tot.linkProperty("Checked",  function() { return view_Tot; }, function(_v) { view_Tot = _v; } ); // HtmlView Page linking property 'Checked' for element 'view_Tot'
           break;
       } // end of switch
     }; // end of new reset
@@ -725,7 +777,7 @@ var _stringProperties = {};
 
   _model.setAutoplay(false);
   _model.setFPS(20);
-  _model.setStepsPerDisplay(100);
+  _model.setStepsPerDisplay(200);
   _selectView(_model._autoSelectView(_getViews())); // this includes _model.reset()
   return _model;
 }
@@ -914,7 +966,7 @@ function ohs1_View_0 (_topFrame) {
 
     _view._addElement(EJSS_DRAWING2D.trail,"px_trail", _view.x2) // EJsS HtmlView.HtmlView Page: declaration of element 'px_trail'
       .setProperty("Maximum",100000) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'px_trail'
-      .setProperty("Skip",5) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'px_trail'
+      .setProperty("Skip",10) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'px_trail'
       .setProperty("LineColor","rgba(64,128,255,1)") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'px_trail'
       .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'px_trail'
       ;
@@ -931,7 +983,7 @@ function ohs1_View_0 (_topFrame) {
 
     _view._addElement(EJSS_DRAWING2D.trail,"vx_trail", _view.vx2) // EJsS HtmlView.HtmlView Page: declaration of element 'vx_trail'
       .setProperty("Maximum",100000) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'vx_trail'
-      .setProperty("Skip",5) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'vx_trail'
+      .setProperty("Skip",10) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'vx_trail'
       .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vx_trail'
       .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'vx_trail'
       ;
@@ -948,9 +1000,39 @@ function ohs1_View_0 (_topFrame) {
 
     _view._addElement(EJSS_DRAWING2D.trail,"ax_trail", _view.ax2) // EJsS HtmlView.HtmlView Page: declaration of element 'ax_trail'
       .setProperty("Maximum",100000) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'ax_trail'
-      .setProperty("Skip",5) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'ax_trail'
+      .setProperty("Skip",10) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'ax_trail'
       .setProperty("LineColor","Black") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'ax_trail'
       .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'ax_trail'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.group,"kin", _view.plottingPanel2) // EJsS HtmlView.HtmlView Page: declaration of element 'kin'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.trail,"k_trail", _view.kin) // EJsS HtmlView.HtmlView Page: declaration of element 'k_trail'
+      .setProperty("Maximum",1000000) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'k_trail'
+      .setProperty("LineColor","Magenta") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'k_trail'
+      .setProperty("Skip",10) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'k_trail'
+      .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'k_trail'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.group,"pot", _view.plottingPanel2) // EJsS HtmlView.HtmlView Page: declaration of element 'pot'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.trail,"p_trail", _view.pot) // EJsS HtmlView.HtmlView Page: declaration of element 'p_trail'
+      .setProperty("Maximum",1000000) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'p_trail'
+      .setProperty("Skip",10) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'p_trail'
+      .setProperty("LineColor","Orange") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'p_trail'
+      .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'p_trail'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.group,"tot", _view.plottingPanel2) // EJsS HtmlView.HtmlView Page: declaration of element 'tot'
+      ;
+
+    _view._addElement(EJSS_DRAWING2D.trail,"E_trail", _view.tot) // EJsS HtmlView.HtmlView Page: declaration of element 'E_trail'
+      .setProperty("Maximum",1000000) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'E_trail'
+      .setProperty("Skip",10) // EJsS HtmlView.HtmlView Page: setting property 'Skip' for element 'E_trail'
+      .setProperty("LineColor","Black") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'E_trail'
+      .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'E_trail'
       ;
 
     _view._addElement(EJSS_DRAWING2D.segment,"y0", _view.plottingPanel2) // EJsS HtmlView.HtmlView Page: declaration of element 'y0'
@@ -1005,10 +1087,6 @@ function ohs1_View_0 (_topFrame) {
       .setProperty("Editable",true) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'v0'
       ;
 
-    _view._addElement(EJSS_INTERFACE.numberField,"x0", _view.bottomCell2) // EJsS HtmlView.HtmlView Page: declaration of element 'x0'
-      .setProperty("Editable",true) // EJsS HtmlView.HtmlView Page: setting property 'Editable' for element 'x0'
-      ;
-
     _view._addElement(EJSS_INTERFACE.panel,"bottomCell3", _view.bottomPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'bottomCell3'
       .setProperty("CSS",{"display":"table-cell", "vertical-align": "top", "margin":"0px"}) // EJsS HtmlView.HtmlView Page: setting property 'CSS' for element 'bottomCell3'
       ;
@@ -1023,6 +1101,18 @@ function ohs1_View_0 (_topFrame) {
 
     _view._addElement(EJSS_INTERFACE.checkBox,"view_ax", _view.bottomCell3) // EJsS HtmlView.HtmlView Page: declaration of element 'view_ax'
       .setProperty("Text","ax") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'view_ax'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.checkBox,"view_Kin", _view.bottomCell3) // EJsS HtmlView.HtmlView Page: declaration of element 'view_Kin'
+      .setProperty("Text","C") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'view_Kin'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.checkBox,"view_Pot", _view.bottomCell3) // EJsS HtmlView.HtmlView Page: declaration of element 'view_Pot'
+      .setProperty("Text","P") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'view_Pot'
+      ;
+
+    _view._addElement(EJSS_INTERFACE.checkBox,"view_Tot", _view.bottomCell3) // EJsS HtmlView.HtmlView Page: declaration of element 'view_Tot'
+      .setProperty("Text","E") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'view_Tot'
       ;
 
     _view._addElement(EJSS_INTERFACE.panel,"textPanel", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'textPanel'
