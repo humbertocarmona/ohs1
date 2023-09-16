@@ -2,6 +2,6 @@
 
 
 
-[clique aqui](ohs1_Simulation.xhtml) 
+[run simulation](ohs1_Simulation.xhtml) 
 
 [Page](https://humbertocarmona.github.io/ohs1/)
